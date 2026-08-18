@@ -3,12 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Website</title>
+
+    <title>AI Content Generator</title>
+
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-    <h1>Welcome to My Website</h1>
-    <p>This is my first web page.</p>
+    <header>
+        <div class="container">
+            <h1>AI Content Generator</h1>
+            <p>Create engaging content quickly with the power of AI</p>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+
+            <section class="generator">
+
+                <h2>Generate Your Content</h2>
+
+                <label for="contentType">Content Type</label>
+
+                <select id="contentType">
+                    <option value="blog">Blog Post</option>
+                    <option value="social">Social Media Post</option>
+                    <option value="article">Article</option>
+                    <option value="product">Product Description</option>
+                </select>
+
+                <label for="prompt">Enter Your Topic or Prompt</label>
+
+                <textarea
+                    id="prompt"
+                    placeholder="Example: Write a blog post about the benefits of artificial intelligence..."
+                ></textarea>
+
+                <button class="generate-btn">
+                    Generate Content
+                </button>
+
+                <section class="output" style="display: none;">
+                    <h2>Generated Content</h2>
+
+                    <div class="output-content"></div>
+                </section>
+
+            </section>
+
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 AI Content Generator. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
 
 </body>
 </html>
