@@ -1,10 +1,11 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>AI Content Generator</title>
+    <title>NandiAI - AI Content Generator</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
@@ -13,8 +14,16 @@
 
     <header>
         <div class="container">
-            <h1>AI Content Generator</h1>
-            <p>Create engaging content quickly with the power of AI</p>
+            <h1>NandiAI</h1>
+            <h2>AI Content Generator</h2>
+
+            <p>
+                Built by Nandipha Magalakangqa
+            </p>
+
+            <p>
+                Software Engineer Practitioner | Portfolio Project
+            </p>
         </div>
     </header>
 
@@ -23,7 +32,12 @@
 
             <section class="generator">
 
-                <h2>Generate Your Content</h2>
+                <h2>Create Content with AI</h2>
+
+                <p>
+                    Enter a topic or prompt below and generate content
+                    quickly and efficiently.
+                </p>
 
                 <label for="contentType">Content Type</label>
 
@@ -46,10 +60,32 @@
                 </button>
 
                 <section class="output" style="display: none;">
+
                     <h2>Generated Content</h2>
 
                     <div class="output-content"></div>
+
                 </section>
+
+            </section>
+
+            <section class="about-project">
+
+                <h2>About This Project</h2>
+
+                <p>
+                    NandiAI is a portfolio project developed by
+                    Nandipha Magalakangqa, a Software Engineer Practitioner.
+                    The project explores how Generative AI and Natural
+                    Language Processing can be used to support content
+                    creation and improve productivity.
+                </p>
+
+                <p>
+                    This project is part of my journey into software
+                    engineering and AI development, and it will continue
+                    to evolve as I learn and develop new technical skills.
+                </p>
 
             </section>
 
@@ -57,7 +93,15 @@
     </main>
 
     <footer>
-        <p>&copy; 2026 AI Content Generator. All rights reserved.</p>
+
+        <p>
+            &copy; 2026 Nandipha Magalakangqa | NandiAI
+        </p>
+
+        <p>
+            Software Engineer Practitioner
+        </p>
+
     </footer>
 
     <script src="script.js"></script>
