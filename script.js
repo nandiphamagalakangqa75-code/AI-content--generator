@@ -1,162 +1,203 @@
 // ==========================================
-// NandiGen AI - Prompt Library
+// NandiGen AI - Intelligent Content Studio
+// Developer: Nandipha Magalakangqa
 // ==========================================
 
-// Prompt library containing reusable AI instructions
+
+// ==========================================
+// Prompt Library
+// ==========================================
+
 const promptLibrary = {
 
-    blog: {
-        name: "Blog Post",
-        prompt: (topic) => `
-Write a clear, engaging and informative blog post about:
+    blog: `
+        Create a well-structured and engaging blog post.
+        Include a strong title, introduction, clear headings,
+        useful information, examples where appropriate,
+        and a conclusion.
+    `,
 
-"${topic}"
+    social: `
+        Create an engaging social media post.
+        Make the content concise, attention-grabbing,
+        audience-focused, and include a clear call to action.
+    `,
 
-Requirements:
-- Create an engaging title.
-- Write an introduction.
-- Use clear headings and paragraphs.
-- Explain the topic in an easy-to-understand way.
-- Include practical examples where appropriate.
-- End with a useful conclusion.
-- Use a professional but friendly tone.
-`
-    },
+    article: `
+        Create a professional and informative article.
+        Include a compelling title, introduction,
+        logically organised sections, useful information,
+        and a conclusion.
+    `,
 
-    social: {
-        name: "Social Media Post",
-        prompt: (topic) => `
-Create an engaging social media post about:
+    product: `
+        Create a persuasive product description.
+        Highlight the product's main features, benefits,
+        value to the customer, and include a strong
+        call to action.
+    `,
 
-"${topic}"
-
-Requirements:
-- Start with an attention-grabbing opening.
-- Keep the language clear and engaging.
-- Make the post suitable for a general audience.
-- Include a clear call to action.
-- Add relevant hashtags.
-`
-    },
-
-    article: {
-        name: "Article",
-        prompt: (topic) => `
-Write a well-structured article about:
-
-"${topic}"
-
-Requirements:
-- Create an informative title.
-- Include an introduction.
-- Organize the article using appropriate headings.
-- Explain important points clearly.
-- Provide useful examples or insights.
-- Finish with a strong conclusion.
-`
-    },
-
-    product: {
-        name: "Product Description",
-        prompt: (topic) => `
-Create a compelling product description for:
-
-"${topic}"
-
-Requirements:
-- Clearly explain what the product is.
-- Highlight its key features.
-- Explain the benefits to the customer.
-- Use persuasive but honest language.
-- End with a clear call to action.
-`
-    },
-
-    marketing: {
-        name: "Marketing Content",
-        prompt: (topic) => `
-Create professional marketing content about:
-
-"${topic}"
-
-Requirements:
-- Identify the target audience.
-- Create an engaging headline.
-- Clearly communicate the value or benefits.
-- Use persuasive but trustworthy language.
-- Include a strong call to action.
-`
-    }
+    marketing: `
+        Create professional marketing content.
+        Focus on the target audience, value proposition,
+        benefits, persuasive messaging, and a clear
+        call to action.
+    `
 
 };
 
 
 // ==========================================
-// Content Generator
+// Get Page Elements
 // ==========================================
 
+const contentType = document.getElementById("contentType");
+const promptInput = document.getElementById("prompt");
 const generateButton = document.querySelector(".generate-btn");
-const promptInput = document.querySelector("#prompt");
-const contentType = document.querySelector("#contentType");
+
 const outputSection = document.querySelector(".output");
 const outputContent = document.querySelector(".output-content");
 
 
-// Generate content when the user clicks the button
-generateButton.addEventListener("click", function () {
+// ==========================================
+// Generate Content
+// ==========================================
 
-    const topic = promptInput.value.trim();
+generateButton.addEventListener("click", generateContent);
+
+
+async function generateContent() {
+
     const selectedType = contentType.value;
+    const userPrompt = promptInput.value.trim();
 
-    // Check if the user entered a topic
-    if (topic === "") {
 
-        outputSection.style.display = "block";
+    // Validate input
 
-        outputContent.textContent =
-            "Please enter a topic or prompt before generating content.";
+    if (!userPrompt) {
+
+        alert("Please enter a topic or prompt first.");
 
         return;
     }
 
 
-    // Find the selected prompt template
-    const selectedPrompt = promptLibrary[selectedType];
+    // Get prompt instructions
+
+    const instructions =
+        promptLibrary[selectedType] ||
+        promptLibrary.blog;
 
 
-    // Display loading message
+    // Combine library instructions
+    // with the user's request
+
+    const finalPrompt = `
+You are NandiGen AI, an intelligent content
+generation assistant.
+
+Content type:
+${selectedType}
+
+Instructions:
+${instructions}
+
+User request:
+${userPrompt}
+
+Create high-quality content based on the
+information provided above.
+`;
+
+
+    // Show loading state
+
+    generateButton.disabled = true;
+    generateButton.textContent = "Generating...";
+
     outputSection.style.display = "block";
 
     outputContent.textContent =
-        "Preparing your " +
-        selectedPrompt.name +
-        " prompt...";
+        "NandiGen AI is preparing your content...";
 
 
-    // Temporary demonstration
-    setTimeout(function () {
+    try {
 
-    
-        const finalPrompt = selectedPrompt.prompt(topic);
+        // ==========================================
+        // Send request to backend
+        // ==========================================
+
+        const response = await fetch("/api/generate", {
+
+            method: "POST",
+
+            headers: {
+                "Content-Type": "application/json"
+            },
+
+            body: JSON.stringify({
+
+                prompt: finalPrompt,
+
+                contentType: selectedType
+
+            })
+
+        });
+
+
+        // Check response
+
+        if (!response.ok) {
+
+            throw new Error(
+                "The server could not process the request."
+            );
+
+        }
+
+
+        const data = await response.json();
+
+
+        // Display generated content
+
+        if (data.success) {
+
+            outputContent.textContent =
+                data.content;
+
+        } else {
+
+            throw new Error(
+                data.error ||
+                "Content generation failed."
+            );
+
+        }
+
+
+    } catch (error) {
+
+        console.error(
+            "NandiGen AI error:",
+            error
+        );
 
         outputContent.textContent =
-            "Prompt prepared for NandiGen AI:\n\n" +
-            finalPrompt +
-            "\n\n" +
-            "Next step: connect this prompt to an AI API to generate the final content.";
+            "Unable to generate content right now. " +
+            "Please try again later.";
 
-    }, 1000);
 
-   setTimeout(function () {
+    } finally {
 
-        const finalPrompt = selectedPrompt.prompt(topic);
+        // Restore button
 
-        outputContent.textContent =
-            "Prompt prepared for NandiGen AI:\n\n" +
-            finalPrompt +
-            "\n\n" +
-            "Next step: connect this prompt to an AI API to generate the final content.";
+        generateButton.disabled = false;
 
-    }, 1000);
+        generateButton.textContent =
+            "Generate Content";
 
-});
+    }
+
+}
