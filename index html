@@ -15,7 +15,10 @@
 
 <body>
 
-    <!-- Header -->
+    <!-- ==============================
+         Header
+    =============================== -->
+
     <header>
         <div class="container">
 
@@ -40,23 +43,32 @@
     </header>
 
 
-    <!-- Main Content -->
+    <!-- ==============================
+         Main Content
+    =============================== -->
+
     <main>
 
         <div class="container">
 
-            <!-- Content Generator -->
+
+            <!-- ==============================
+                 AI Content Generator
+            =============================== -->
+
             <section class="generator">
 
                 <h2>Create Content with AI</h2>
 
                 <p>
-                    Enter a topic or prompt below and generate
-                    content quickly and efficiently.
+                    Enter a topic or prompt below and choose the
+                    type of content you would like NandiGen AI
+                    to prepare.
                 </p>
 
 
                 <!-- Content Type -->
+
                 <label for="contentType">
                     Select Content Type
                 </label>
@@ -86,7 +98,8 @@
                 </select>
 
 
-                <!-- Prompt -->
+                <!-- User Prompt -->
+
                 <label for="prompt">
                     Enter Your Topic or Prompt
                 </label>
@@ -98,13 +111,19 @@
 
 
                 <!-- Generate Button -->
-                <button class="generate-btn">
+
+                <button
+                    type="button"
+                    class="generate-btn">
                     Generate Content
                 </button>
 
 
                 <!-- Generated Content -->
-                <section class="output" style="display: none;">
+
+                <section
+                    class="output"
+                    style="display: none;">
 
                     <h2>Generated Content</h2>
 
@@ -115,7 +134,10 @@
             </section>
 
 
-            <!-- About Project -->
+            <!-- ==============================
+                 About NandiGen AI
+            =============================== -->
+
             <section class="about-project">
 
                 <h2>About NandiGen AI</h2>
@@ -128,46 +150,55 @@
 
                 <p>
                     The project explores how Generative AI and
-                    Natural Language Processing can be used to
-                    support content creation, improve productivity,
-                    and make writing more accessible.
+                    Natural Language Processing (NLP) can support
+                    content creation, improve productivity and
+                    make writing more accessible.
+                </p>
+
+                <p>
+                    This is my first AI-focused portfolio project
+                    and forms part of my journey into software
+                    engineering and artificial intelligence.
                 </p>
 
             </section>
 
 
-            <!-- Prompt Library -->
+            <!-- ==============================
+                 Prompt Library
+            =============================== -->
+
             <section class="prompt-library">
 
                 <h2>Prompt Library</h2>
 
                 <p>
                     NandiGen AI uses a structured prompt library
-                    designed to guide AI-generated content.
-                    The library contains prompts for different
-                    content creation needs.
+                    to guide content generation. Different prompt
+                    templates are used depending on the type of
+                    content selected by the user.
                 </p>
 
                 <ul>
 
                     <li>
-                        Blog post generation
+                        Blog Post Generation
                     </li>
 
                     <li>
-                        Social media content
+                        Social Media Content
                     </li>
 
                     <li>
-                        Article generation
+                        Article Generation
                     </li>
 
                     <li>
-                        Product descriptions
+                        Product Descriptions
                     </li>
 
                     <li>
-                        Marketing content
+                        Marketing Content
                     </li>
 
                 </ul>
@@ -175,32 +206,40 @@
             </section>
 
 
-            <!-- AI Tool -->
+            <!-- ==============================
+                 AI Generation Technology
+            =============================== -->
+
             <section class="ai-tool">
 
-                <h2>AI Generation Tool</h2>
+                <h2>AI Generation Technology</h2>
 
                 <p>
-                    NandiGen AI is designed to use an AI model
-                    to process user prompts and generate
+                    NandiGen AI is designed to process user
+                    prompts and use an AI model to generate
                     relevant and engaging content.
                 </p>
 
                 <p>
-                    The AI generation API and model will be
-                    integrated as the project develops.
+                    The AI model and API integration will be
+                    added as the project develops.
                 </p>
 
             </section>
 
 
-            <!-- Developer -->
+            <!-- ==============================
+                 Developer
+            =============================== -->
+
             <section class="developer">
 
                 <h2>About the Developer</h2>
 
                 <p>
-                    <strong>Nandipha Magalakangqa</strong>
+                    <strong>
+                        Nandipha Magalakangqa
+                    </strong>
                 </p>
 
                 <p>
@@ -209,9 +248,10 @@
 
                 <p>
                     NandiGen AI is my first AI-focused portfolio
-                    project. It represents my journey into
-                    software engineering, Generative AI and
-                    Natural Language Processing.
+                    project. Through this project, I am developing
+                    practical skills in HTML, CSS, JavaScript,
+                    Generative AI, Natural Language Processing
+                    and software development.
                 </p>
 
             </section>
@@ -221,7 +261,10 @@
     </main>
 
 
-    <!-- Footer -->
+    <!-- ==============================
+         Footer
+    =============================== -->
+
     <footer>
 
         <div class="container">
@@ -244,6 +287,7 @@
 
 
     <!-- JavaScript -->
+
     <script src="script.js"></script>
 
 </body>
