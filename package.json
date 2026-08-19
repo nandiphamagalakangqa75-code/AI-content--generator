@@ -1,0 +1,22 @@
+{
+  "name": "nandigen-ai",
+  "version": "1.0.0",
+  "description": "NandiGen AI - Intelligent Content Studio, an AI-powered content generation project by Nandipha Magalakangqa.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "artificial-intelligence",
+    "generative-ai",
+    "natural-language-processing",
+    "content-generator",
+    "prompt-engineering"
+  ],
+  "author": "Nandipha Magalakangqa",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
